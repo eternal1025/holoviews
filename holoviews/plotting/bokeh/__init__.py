@@ -49,7 +49,7 @@ associations = {Overlay: OverlayPlot,
                 Area: AreaPlot,
 
                 # Rasters
-                Image: RasterPlot,
+                Image: ImagePlot,
                 GridImage: ImagePlot,
                 RGB: RGBPlot,
                 HSV: HSVPlot,
