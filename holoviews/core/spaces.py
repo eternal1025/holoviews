@@ -335,7 +335,8 @@ class HoloMap(UniformNdMapping):
 
             samples = list(util.unique_iterator(self.last.closest(linsamples)))
 
-        sampled = self.clone([(k, view.sample(samples, **sample_values))
+        sampled = self.clone([(k, view.sample(samples, closest=False,
+                                              **sample_values))
                               for k, view in self.data.items()])
         return sampled.table()
 
