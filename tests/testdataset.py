@@ -989,3 +989,6 @@ class RasterDatasetTest(GridTests, ComparisonTestCase):
         Dataset.datatype = ['image']
         self.data_instance_type = dict
         self.init_grid_data()
+
+    def tearDown(self):
+        Dataset.datatype = self.restore_datatype
