@@ -175,12 +175,7 @@ class Dataset(Element):
         the up-to-date Dataset format.
         """
         self.__dict__ = state
-        if isinstance(self.data, OrderedDict):
-            self.data = Dataset(self.data, kdims=self.kdims,
-                                vdims=self.vdims, group=self.group,
-                                label=self.label)
-            self.interface = NdColumns
-        elif isinstance(self.data, np.ndarray):
+        if isinstance(self.data, np.ndarray):
             self.interface = ArrayInterface
         elif util.is_dataframe(self.data):
             self.interface = PandasInterface
