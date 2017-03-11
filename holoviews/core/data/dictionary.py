@@ -55,7 +55,8 @@ class DictInterface(Interface):
             data = {k: data[:,i] for i,k in enumerate(dimensions)}
         elif isinstance(data, list) and np.isscalar(data[0]):
             data = {dimensions[0]: np.arange(len(data)), dimensions[1]: data}
-        elif isinstance(data, list) and isinstance(data[0], tuple) and len(data[0]) == 2:
+        elif (isinstance(data, list) and isinstance(data[0], tuple) and len(data[0]) == 2
+              and any(isinstance(v, tuple) for v in data[0])):
             dict_data = zip(*((util.wrap_tuple(k)+util.wrap_tuple(v))
                               for k, v in data))
             data = {k: np.array(v) for k, v in zip(dimensions, dict_data)}
